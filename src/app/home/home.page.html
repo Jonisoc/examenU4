@@ -1,20 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Reservaciones
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <form [formGroup]="myForm">
+    <ion-col size="20">
+      <ion-item>
+        <ion-datetime value="2022-04-21T00:00:00" min="2022-03-01T00:00:00" max="2022-10-31T23:59:59"></ion-datetime>
+      </ion-item>
+    </ion-col>
+
+    <ion-item>
+      <ion-range formControlName="alberca" dualKnobs={true} min={0} max={100} step={20} snaps={true} ></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Brincolin</ion-label>
+      <ion-toggle formControlName="brincolin" slot="end" (ionChange)="brincolin()" ></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mesa</ion-label>
+      <ion-toggle formControlName="mesa" slot="end" (ionChange)="mesa()" ></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Futbolito</ion-label>
+      <ion-toggle formControlName="futbolito" slot="end" (ionChange)="futbolito()" ></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>El precio es: ${{precio}}</ion-label>
+    </ion-item>
+
+    <ion-button expand="block" fill="clear" shape="round">
+      Reserva
+    </ion-button>
+  </form>
 </ion-content>

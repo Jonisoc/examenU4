@@ -11,4 +11,4 @@ export class Cliente {
     telefono: string;
     domiclio: string;
     id?: string;
-}
+} 
