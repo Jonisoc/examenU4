@@ -1,8 +1,8 @@
 export class Reserva {
     fecha: string;
+    total: number;
     nombre: string;
     telefono: string;
-    total: number;
     id?: string;
 }
 
