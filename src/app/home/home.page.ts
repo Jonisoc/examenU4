@@ -65,7 +65,7 @@ export class HomePage {
 
   public async addReserva() {
     this.fecha = new Date(this.myForm.get('fecha').value);
-    console.log(this.fecha);
+    //console.log(this.fecha);
 
     if (this.fecha > this.diaActual) {
       if (this.diaOcupado()) {
@@ -96,40 +96,12 @@ export class HomePage {
       });
       toast.present();
     }
-
   }
 
-  toggleCambiado(event, modo, boton) {
-    if (boton == 'brincolin') {
-      this.brincolin = !modo;
-      if (!modo) {
-        this.total += 200;
-      } else this.total -= 200;
-    }
-    if (boton == 'mesa') {
-      this.mesa = !modo;
-      if (!modo) {
-        this.total += 150;
-      } else this.total -= 150;
-    }
-    if (boton == 'futbolito') {
-      this.futbolito = !modo;
-      if (!modo) {
-        this.total += 100;
-      } else this.total -= 100;
-    }
-    console.log(event.target.value, this.brincolin, this.mesa, this.futbolito);
-  }
-
-  rangeCambiado(event) {
-    this.prof1 = event.target.value;
-    this.total = this.total - this.prof2 * 5 + this.prof1 * 5;
-    this.prof2 = this.prof1;
-  }
 
   public diaOcupado(): Boolean {
-    let ocupado = false;
     let fechaSeleccionada = this.fecha.toLocaleDateString();
+    let ocupado = false;
 
     for (let index = 0; index < this.reservas.length; index++) {
       let diaOcupado = this.reservas[index].fecha;
@@ -144,6 +116,33 @@ export class HomePage {
     console.log(ocupado);
     return ocupado;
   }
+
+
+  toggleCambiado(event, modo, boton) {
+    if (boton == 'mesa') { this.mesa = !modo;
+      if (!modo) { this.total += 150;
+      } else this.total -= 150;
+    }
+
+    if (boton == 'brincolin') { this.brincolin = !modo;
+      if (!modo) { this.total += 200;
+      } else this.total -= 200;
+    }
+
+    if (boton == 'futbolito') { this.futbolito = !modo;
+      if (!modo) { this.total += 100;
+      } else this.total -= 100;
+    }
+    console.log(event.target.value, this.brincolin, this.mesa, this.futbolito);
+  }
+
+  rangeCambiado(event) {
+    this.prof1 = event.target.value;
+    this.total = this.total - this.prof2 * 5 + this.prof1 * 5;
+    this.prof2 = this.prof1;
+  }
+
+  
 
 
 }
