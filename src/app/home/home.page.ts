@@ -78,8 +78,8 @@ export class HomePage {
         this.reserva = {
           fecha: this.fecha.toLocaleDateString(),
           total: this.total,
-          nombre: this.cliente.nombre,
-          telefono: this.cliente.telefono,
+          nombre: 'polo',
+          telefono: '3112272687',
         };
         this.reservasService.nuevaReserva(this.reserva);
         let toast = await this.tC.create({

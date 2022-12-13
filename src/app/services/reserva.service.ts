@@ -27,7 +27,7 @@ export class ReservaService {
         })
       );
   }
-
+ 
 
   public getReservas(): Observable<Reserva[]> {
     return this.firestore.collection('reserva').snapshotChanges().pipe(map((actions) => {
@@ -41,6 +41,7 @@ export class ReservaService {
   }
 
 
+  //Se ordenasn las fechas de forma ascendente y solo se guardan las 2 primesas para posteriormente mostrarse
   public get2Reservas(): Observable<Reserva[]> {
     return this.firestore.collection('reserva', (ref) =>
         ref.where('fecha', '>=', new Date().toLocaleDateString()).orderBy('fecha', 'asc').limit(2)).snapshotChanges().pipe(map((actions) => {

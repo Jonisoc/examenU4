@@ -1,30 +1,20 @@
-<!--ion-header>
+<ion-header>
   <ion-toolbar>
     <ion-title>Login</ion-title>
   </ion-toolbar>
-</!--ion-header>
- 
-<ion-content-->
-  <!--ion-grid>
-    <form [formGroup]="myForm">
-      <ion-row>
-        <ion-col size="12">
-          <ion-item>
-            <ion-label position="floating">Teléfono celular</ion-label>
-            <ion-input formControlName="phone" ></ion-input>
-          </ion-item>
-          <div>
-            <ng-container *ngFor="let item of validationMessage['phone']">
-              <div class="errormessage" *ngIf="(myForm.get('phone').dirty || myForm.get('phone').touched) && myForm.get('phone').hasError(item.type)">
-                {{item.message}}
-              </div>
-            </ng-container>
-          </div>
-        </ion-col>
-      </ion-row>
-      <ion-button (click)='login()' expand="block" fill="clear" shape="round">
-        Entrar
-      </ion-button>
-    </form>
-  </!--ion-grid>
-</ion-content--> 
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm">
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating"> Teléfono</ion-label>
+          <ion-input formControlName="telefono" type="text" placeholder="Awesome Input"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-button (click)="ingresar()" expand="block" fill="clear" shape="round">  Ingresar </ion-button>
+  </form>
+</ion-content> 
