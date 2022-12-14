@@ -50,6 +50,8 @@ export class HomePage {
       let telefono = params['telefono'];
       this.personService.getClienteByTelefono(telefono).subscribe((res) => {
         this.cliente = res[0];
+        console.log(this.cliente);
+        
       });
     });
     this.reservasService.getReservas().subscribe((res) => {
@@ -78,8 +80,8 @@ export class HomePage {
         this.reserva = {
           fecha: this.fecha.toLocaleDateString(),
           total: this.total,
-          nombre: 'polo',
-          telefono: '3112272687',
+          nombre: this.cliente.nombre,
+          telefono: this.cliente.telefono,
         };
         this.reservasService.nuevaReserva(this.reserva);
         let toast = await this.tC.create({

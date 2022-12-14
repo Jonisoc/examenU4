@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title> Registro </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +16,7 @@
           <ion-datetime-button datetime="fecha" name="water-outline"></ion-datetime-button>
           <ion-modal [keepContentsMounted]="true">
             <ng-template>
-              <ion-datetime formControlName="fecha" presentation="date" id="fecha"></ion-datetime>
+              <ion-datetime formControlName="fecha" presentation="date" id="fecha" min="{{diaActual.toISOString()}}"></ion-datetime>
             </ng-template>
           </ion-modal>
         </ion-item>

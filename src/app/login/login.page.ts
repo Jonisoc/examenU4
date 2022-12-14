@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
 
   
   async ingresar() {
-    if (this.myForm.get('telefono').value == '3112272687') {//es el admin
+    if (this.myForm.get('telefono').value == '999') {//es el admin
       this.router.navigate(['/admin']);
     } else {
       if (this.existeReserva()) {
